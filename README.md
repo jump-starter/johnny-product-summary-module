@@ -1,6 +1,6 @@
-# FEC-KickStarter-Main-Component
+# FEC-Product-Summary
 
-Front End Capstone Project :: Kickstarter :: Main Component
+Front End Capstone Project :: Kickstarter :: Product Summary
 
 ## Related Projects
 
