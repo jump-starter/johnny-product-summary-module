@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/hack-reactor-fec/Main-Component/issues"
   },
-  "homepage": "https://github.com/hack-reactor-fec/Main-Component#readme"
+  "homepage": "https://github.com/hack-reactor-fec/Main-Component#readme",
+  "devDependencies": {
+    "faker": "^4.1.0",
+    "mongoose": "^5.0.14"
+  },
+  "dependencies": {}
 }
