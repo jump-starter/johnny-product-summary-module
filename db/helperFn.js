@@ -1,81 +1,40 @@
 let faker = require('faker');
+let Product = require('./index.js');
 
-/**************************new Schema format*********************************
+
 var saveProducts = function(arr) {
   for (var i = 0; i < arr.length; i++) {
-    let instance = new product({
+    let instance = new Product({
       mainDisplay: {
-        title: String,
-        description: String,
-        img: String,
+        title: faker.commerce.productName(),
+        description: faker.lorem.paragraph(),
+        img: faker.image.business(),
       },
       product: {
-        name: String,
-        category: String,
-        numBackers: Number,
-        amtPledged: Number,
+        name: faker.commerce.productName(),
+        category: faker.commerce.department(),
+        numBackers: getRndIntIncl(0,20),
+        amtPledged: getRndIntIncl(0, 50000),
       },
       target: {
-        endDate: String,
-        amt: Number,
+        endDate: getRndIntIncl(5, 12) + '/' + getRndIntIncl(1,28) + '/' + 2018,
+        amt: getRndIntIncl(0, 50000),
       },
       creator: {
-        name: String,
-        location: String,
-        avatarImg: String,
-        numberProducts: Number,
+        name: faker.name.firstName() + ' ' + faker.name.lastName(),
+        location: faker.address.city() + ', ' + faker.address.state(),
+        avatarImg: faker.image.avatar(),
+        numberProducts: 1,
       },
+    });
+    instance.save((err, res) => {
+      if (err) {
+        return console.error(err);
+      } else {
+        console.log(`successful, res is :: ${res}`)
+      }
     })
   }
-}
-*************************************************************************/
-class Creator {
-  constructor() {
-    this.creatorId = 0;
-    this.name = faker.name.firstName() + ' ' + faker.name.lastName();
-    this.location = faker.address.city() + ', ' + faker.address.state();
-    this.product = faker.commerce.productName();
-    this.totalNumProducts = 1;
-    this.avatarImg = faker.image.avatar();
-  }
-}
-
-class Product  {
-  constructor() {
-    this.creatorId = 0;
-    this.title = faker.commerce.productName();
-    this.description = faker.lorem.paragraph();
-    this.mainImg = faker.image.business();
-    this.category = faker.commerce.department();
-    this.numBackers = getRndIntIncl(0,20);
-    this.goalDate = getRndIntIncl(5, 12) + '/' + getRndIntIncl(1,28) + '/' + 2018;
-    this.goalAmt = getRndIntIncl(1000, 50000);
-    this.amtPledged = getRndIntIncl(0, this.goalAmt);
-    this.productId = 0;
-  }
-}
-
-let ProductGenerator = function() {
-  var instances = [];
-  for (var i = 1; i < 100; i++) {
-    var temp = new Product();
-    temp.creator = i;
-    temp.productId = i * getRndIntIncl(1,7);
-    instances.push(temp)
-  }
-  return instances;
-}
-
-let CreatorGenerator = function() {
-  var instances = [];
-  var j = 100;
-  for (var i = 0; i < 100; i++) {
-    var temp = new Creator();
-    temp.creatorId = j;
-    instances.push(temp);
-    j--;
-  }
-  return instances;
 }
 
 let getRndIntIncl = function(min, max) {
@@ -83,5 +42,3 @@ let getRndIntIncl = function(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
-module.exports =
