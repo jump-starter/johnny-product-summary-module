@@ -2,8 +2,8 @@ let faker = require('faker');
 let Product = require('./index.js');
 
 
-var saveProducts = function(arr) {
-  for (var i = 0; i < arr.length; i++) {
+var saveProducts = function() {
+  for (var i = 0; i < 100; i++) {
     let instance = new Product({
       mainDisplay: {
         title: faker.commerce.productName(),
@@ -42,3 +42,5 @@ let getRndIntIncl = function(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+// saveProducts()
