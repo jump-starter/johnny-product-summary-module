@@ -69,3 +69,6 @@ let sampleData = [
     },
   },
 ]
+
+
+export default sampleData;
