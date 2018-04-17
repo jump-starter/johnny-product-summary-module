@@ -4,8 +4,8 @@
   "description": "Front End Capstone Project :: Kickstarter :: Primary Component",
   "main": "index.js",
   "scripts": {
-    "react-dev": "webpack -d --watch ./client/public/assets",
-    "server-dev": "nodemon --inspect ./server/server.js"
+    "reactD": "webpack -d --watch",
+    "serverD": "nodemon --inspect ./server/server.js"
   },
   "repository": {
     "type": "git",
@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "express": "^4.16.3",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1"
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
   }
 }

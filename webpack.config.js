@@ -1,18 +1,17 @@
 var path = require('path');
-var dirSOURCE = path.join(__dirname, '/client/src');
-var dirPUBLIC = path.join(__dirname, '/client/public/assets');
 
 module.exports = {
-  entry: `${directorySOURCE}/index.jsx`,
+  mode: 'development',
+  entry: './client/src/index.jsx',
   output: {
     filename: 'bundle.js',
-    path: directoryPUBLIC,
+    path: path.resolve(__dirname, 'client/public'),
   },
   module : {
     rules : [
       {
         test : /\.jsx?/,
-        include : directorySOURCE,
+        exclude: /node_modules/,
         loader : 'babel-loader',
         query: {
           presets: ['react', 'es2015']
