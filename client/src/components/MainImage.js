@@ -12,10 +12,10 @@ class MainImage extends React.Component {
       borderWidth: '1px',
       borderColor: 'red',
     }
-    
+    console.log(this.props.data[2].mainDisplay.img);
     return (
       <div className="MainImage">
-        <h1 style={style}>mainImage</h1>
+        <img src={this.props.data[0].mainDisplay.img} alt="Sorry, image seems to be broken"></img>
       </div>
     )
   }

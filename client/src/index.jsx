@@ -19,15 +19,14 @@ class App extends React.Component {
     const style = {
       borderStyle:'solid',
       borderWidth: '1px',
-      borderColor: 'blue',
+      borderColor: 'pink',
     }
     return (
-      <div className="App">
-        <h1 style={style}>App</h1>
-        <Title data={this.state.data} />
-        <MainImage />
-        <Footer />
-        <Stats />
+      <div className="App" style={style}>
+        <Title data={this.state.data}/>
+        <MainImage data={this.state.data}/>
+        <Footer data={this.state.data}/>
+        <Stats data={this.state.data}/>
       </div>
     )
   }

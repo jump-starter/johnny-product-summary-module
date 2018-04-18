@@ -13,8 +13,24 @@ class Stats extends React.Component {
     }
 
     return (
-      <div className="Stats">
-        <h1 style={style}>stats</h1>
+      <div className="Stats" style={style}>
+        <ul>
+          <li>
+            amtPledged: {this.props.data[0].product.amtPledged}
+          </li>
+          <li>
+            targetAmt: {this.props.data[0].target.amt}
+          </li>
+          <li>
+            numBackers: {this.props.data[0].product.numBackers}
+          </li>
+          <li>
+            Days to go: today -  {this.props.data[0].target.endDate}
+          </li>
+          <li>
+            <button type="button">Back this project</button>
+          </li>
+        </ul>
       </div>
     )
   }
