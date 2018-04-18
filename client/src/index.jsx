@@ -10,11 +10,12 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-
+      data: sampleData,
     }
   }
 
   render() {
+    console.log(this.state.data)
     const style = {
       borderStyle:'solid',
       borderWidth: '1px',
@@ -23,7 +24,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1 style={style}>App</h1>
-        <Title style={style} />
+        <Title data={this.state.data} />
         <MainImage />
         <Footer />
         <Stats />

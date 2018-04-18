@@ -11,7 +11,7 @@ class Title extends React.Component {
       borderWidth: '1px',
       borderColor: 'red',
     }
-    
+
     return (
       <div className="Title">
         <h1 style ={style}>title</h1>
