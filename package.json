@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hack-reactor-fec/Main-Component.git"
+    "url": "git+https://github.com/hack-reactor-fec/product-summary.git",
   },
   "keywords": [],
-  "author": "",
+  "author": "Cameron Fielder",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hack-reactor-fec/Main-Component/issues"
+    "url": "https://github.com/hack-reactor-fec/product-summary/issues",
   },
-  "homepage": "https://github.com/hack-reactor-fec/Main-Component#readme",
+  "homepage": "https://github.com/hack-reactor-fec/product-summary#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
