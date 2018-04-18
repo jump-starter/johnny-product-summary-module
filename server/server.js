@@ -21,17 +21,19 @@ app.get('/main', (req, res) => {
   console.log(req, 'GET :: server');
   let db = mongoose.connect('localhost:27017/main');
 
-  Product.findOne({type: 'mainDisplay'}).exec(function (err, docs) {
+  Product.find({}).exec(function (err, docs) {
     if (err) {
       console.log('err');
       res.status(400).end();
     } else {
       console.log(docs)
-      res.status(200).json(docs.mainDisplay);
+      res.status(200).json(docs);
     }
   });
 
-
+// app.post('/main', (req, res) => {
+//   console.log(req, res)
+// })
 
 
 });
