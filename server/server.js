@@ -3,14 +3,14 @@ const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Product = require('../db/index.js');
-
+const cors = require('cors');
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
-
 app.use(express.static(path.join(__dirname, '/../client/public')));
 
-const port = 1337;
+const port = 3001;
 
 
 app.get('/main', (req, res) => {
