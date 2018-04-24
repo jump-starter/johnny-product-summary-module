@@ -91,7 +91,7 @@ class Stats extends React.Component {
             </img> Remind me
           </button>
         </div>
-        <div style={style.afterAllOrN}><a href="" style={style.allOrN}>All or nothing.</a> This project will only be funded if it reaches its goal by Thu, May 31 2018 5:13 AM PDT.</div>
+        <div style={style.afterAllOrN}><a href="" style={style.allOrN}>All or nothing.</a> This project will only be funded if it reaches its goal by</div>
       </div>
     )
   }
