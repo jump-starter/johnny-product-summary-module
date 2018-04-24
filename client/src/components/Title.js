@@ -14,6 +14,7 @@ class Title extends React.Component {
       avatarImg: {
         borderRadius: '50%',
         height: '42px',
+        alignSelf: 'end',
       },
       creator: {
         textDecoration: 'none',
@@ -21,6 +22,7 @@ class Title extends React.Component {
       },
       title: {
         fontSize: '38px',
+
       },
       description: {
 
@@ -34,19 +36,19 @@ class Title extends React.Component {
     return (
       <div className="Title" style={style}>
         <div>
-          <div id="creator">
-            <img src={this.props.data[0].creator.avatarImg} style={style.avatarImg}></img>
-            <span>
-              <a href="" style={style.creator}>By {" "} {this.props.data[0].creator.name}</a>
-            </span>
-            <div id="numProducts" style={style.productCount}>
-              First created
-            </div>
+          <img
+            src={this.props.data[0].creator.avatarImg}
+            style={style.avatarImg}>
+          </img>
+          <span>
+            <a href="" style={style.creator}>By {" "} {this.props.data[0].creator.name}</a>
+          </span>
+          <div id="numProducts" style={style.productCount}>
+            First created
           </div>
-          <div id="productInfo">
-            <div style={style.title}>{this.props.data[0].mainDisplay.title}</div>
-            <div style={style.description}>{this.props.data[0].mainDisplay.description}</div>
-          </div>
+          <div style={style.title}>{this.props.data[0].mainDisplay.title}</div>
+          <div style={style.description}>{this.props.data[0].mainDisplay.description}</div>
+
         </div>
       </div>
     )

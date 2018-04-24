@@ -5,7 +5,7 @@ import Title from './components/Title.js';
 import MainImage from './components/MainImage.js';
 import Footer from './components/Footer.js';
 import Stats from './components/Stats.js';
-/************************************************************************/
+/***********************************************************************/
 class App extends React.Component {
   constructor() {
     super();
@@ -18,7 +18,7 @@ class App extends React.Component {
     console.log(this.state.data)
     const style = {
       display: "grid",
-      gridTemplateColumns: "180px 820px auto auto 180px",
+      gridTemplateColumns: "180px 820px 235px 235px 180px",
       gridTemplateRows: "54px 130px 36px 450px 60px auto",
       justifyContent: "stretch",
       lineHeight: "21px",
@@ -43,5 +43,4 @@ class App extends React.Component {
 
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
 ReactDOM.render(<App />, document.getElementById('root'));
