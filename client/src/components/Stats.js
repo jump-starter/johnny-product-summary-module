@@ -8,7 +8,7 @@ class Stats extends React.Component {
   render() {
     const style = {
       gridRow: '4 / span 1',
-      gridColumn: '3 / span 2',
+      gridColumn: '3 / span 1',
       justifySelf: 'start',
 
     }
