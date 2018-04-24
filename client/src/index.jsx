@@ -5,7 +5,7 @@ import Title from './components/Title.js';
 import MainImage from './components/MainImage.js';
 import Footer from './components/Footer.js';
 import Stats from './components/Stats.js';
-/************************************************************************/
+/***********************************************************************/
 class App extends React.Component {
   constructor() {
     super();
@@ -17,10 +17,20 @@ class App extends React.Component {
   render() {
     console.log(this.state.data)
     const style = {
-      borderStyle:'solid',
-      borderWidth: '1px',
-      borderColor: 'pink',
+      display: "grid",
+      gridTemplateColumns: "180px 820px 235px 235px 180px",
+      gridTemplateRows: "54px 130px 36px 450px 60px auto",
+      justifyContent: "stretch",
+      lineHeight: "21px",
+      fontSize: "14px",
+      fontWeight: "400",
+      fontFamily: "Karla, Helvetica Neue, Helvetica, Arial, sans-serif",
+      backgroundColor: "#FBFBFA",
+      color: "rgb(40, 40, 40)",
+      gridAutoFlow: 'row',
+      gridAutoFlow: 'column',
     }
+
     return (
       <div className="App" style={style}>
         <Title data={this.state.data}/>
@@ -30,7 +40,6 @@ class App extends React.Component {
       </div>
     )
   }
-
 
 }
 

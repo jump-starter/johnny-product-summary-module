@@ -7,20 +7,48 @@ class Title extends React.Component {
 
   render() {
     const style = {
-      borderStyle:'solid',
-      borderWidth: '1px',
-      borderColor: 'purple',
 
+      gridRow: '2 / span 1',
+      gridColumn: '2 / span 3',
+
+      avatarImg: {
+        borderRadius: '50%',
+        height: '42px',
+        alignSelf: 'end',
+      },
+      creator: {
+        textDecoration: 'none',
+        color: 'rgb(40, 40, 40)',
+      },
+      title: {
+        fontSize: '38px',
+
+      },
+      description: {
+
+        fontSize: '18px',
+      },
+      productCount: {
+        color: 'rgb(149, 149, 158)',
+      },
     }
 
     return (
       <div className="Title" style={style}>
-        <p><b>Title:{this.props.data[0].mainDisplay.title}</b></p>
-        <p><b>Description:{this.props.data[0].mainDisplay.description}</b></p>
         <div>
-          <img src={this.props.data[0].creator.avatarImg}></img>
-          <p><b>Creator:{this.props.data[0].creator.name}</b></p>
-          <p><b>Number of projects:  {this.props.data[0].creator.numberProducts}</b></p>
+          <img
+            src={this.props.data[0].creator.avatarImg}
+            style={style.avatarImg}>
+          </img>
+          <span>
+            <a href="" style={style.creator}>By {" "} {this.props.data[0].creator.name}</a>
+          </span>
+          <div id="numProducts" style={style.productCount}>
+            First created
+          </div>
+          <div style={style.title}>{this.props.data[0].mainDisplay.title}</div>
+          <div style={style.description}>{this.props.data[0].mainDisplay.description}</div>
+
         </div>
       </div>
     )
