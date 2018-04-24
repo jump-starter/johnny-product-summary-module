@@ -9,7 +9,7 @@ class Footer extends React.Component {
     const style = {
       display: 'inline',
       gridRow: '5 / span 1',
-      gridColumn: '2 / span 1',
+      gridColumn: '2 / span 2',
       alignSelf: 'center',
       padding: '18px 0 18px 0',
       justifySelf: 'start',

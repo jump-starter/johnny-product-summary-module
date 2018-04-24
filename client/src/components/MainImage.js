@@ -9,7 +9,7 @@ class MainImage extends React.Component {
   render() {
     const style = {
       gridRow: '4 / span 1',
-      gridColumn: '2 / span 1',
+      gridColumn: '2 / span 2',
       justifySelf: 'stretch',
       alignSelf: 'stretch',
       overflow: 'hidden',
