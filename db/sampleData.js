@@ -3,7 +3,7 @@ let sampleData = [
     mainDisplay: {
       title: 'Refined Soft Mouse',
       description: 'Minima et voluptatum rerum ea consequatur reiciendis enim eius. Est qui nam voluptatem. Aut corporis odio consequatur. Distinctio sint ut commodi praesentium asperiores. Commodi non accusamus. Id dicta sit eos similique.',
-      img: 'http://lorempixel.com/640/480/business',
+      img: 'http://lorempixel.com/820/460/business',
     },
     product: {
       name: 'Fantastic Cotton Car',
@@ -26,7 +26,7 @@ let sampleData = [
     mainDisplay: {
       title: 'Unbranded Metal Shoes',
       description: 'Sequi ratione incidunt sit. Veniam eius omnis fugiat asperiores molestiae consequatur possimus. Perferendis sint dicta nihil et temporibus sed nostrum aut tempora.',
-      img: 'http://lorempixel.com/640/480/business',
+      img: 'http://lorempixel.com/820/460/business',
     },
     product: {
       name: 'Licensed Metal Sausages',
@@ -49,7 +49,7 @@ let sampleData = [
     mainDisplay: {
       title: 'Sleek Soft Bacon',
       description: 'Rerum quidem veritatis. Quam sint assumenda suscipit enim eos. Corrupti harum quis nobis sequi.',
-      img: 'http://lorempixel.com/640/480/business',
+      img: 'http://lorempixel.com/820/460/business',
     },
     product: {
       name: 'Small Soft Tuna',

@@ -17,10 +17,20 @@ class App extends React.Component {
   render() {
     console.log(this.state.data)
     const style = {
-      borderStyle:'solid',
-      borderWidth: '1px',
-      borderColor: 'pink',
+      display: "grid",
+      gridTemplateColumns: "180px 820px auto auto 180px",
+      gridTemplateRows: "54px 130px 36px 450px 60px auto",
+      justifyContent: "stretch",
+      lineHeight: "21px",
+      fontSize: "14px",
+      fontWeight: "400",
+      fontFamily: "Karla, Helvetica Neue, Helvetica, Arial, sans-serif",
+      backgroundColor: "#FBFBFA",
+      color: "rgb(40, 40, 40)",
+      gridAutoFlow: 'row',
+      gridAutoFlow: 'column',
     }
+
     return (
       <div className="App" style={style}>
         <Title data={this.state.data}/>
@@ -31,7 +41,7 @@ class App extends React.Component {
     )
   }
 
-
 }
 
+ReactDOM.render(<App />, document.getElementById('root'));
 ReactDOM.render(<App />, document.getElementById('root'));

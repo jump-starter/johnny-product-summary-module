@@ -8,14 +8,16 @@ class MainImage extends React.Component {
 
   render() {
     const style = {
-      borderStyle:'solid',
-      borderWidth: '1px',
-      borderColor: 'red',
+      gridRow: '4 / span 1',
+      gridColumn: '2 / span 1',
+      justifySelf: 'stretch',
+      alignSelf: 'stretch',
+      overflow: 'hidden',
     }
     console.log(this.props.data[2].mainDisplay.img);
     return (
-      <div className="MainImage">
-        <img src={this.props.data[0].mainDisplay.img} alt="Sorry, image seems to be broken"></img>
+      <div className="MainImage" style={style}>
+        <img src={this.props.data[0].mainDisplay.img} alt="Sorry, image seems to be broken" ></img>
       </div>
     )
   }
