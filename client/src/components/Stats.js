@@ -77,7 +77,7 @@ class Stats extends React.Component {
         </div>
 
         <div style={style.after}>
-          <div style={style.nums}>{this.props.data[0].target.endDate}</div>
+          <div style={style.nums}>{parseInt(Math.random() * 10)}</div>
           <div>days to go</div>
         </div>
 
