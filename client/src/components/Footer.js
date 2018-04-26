@@ -35,14 +35,16 @@ class Footer extends React.Component {
         style={style.icons}
         src="https://s17.postimg.cc/rj782wx7z/Untitled_2.png" alt="Sorry, image seems to be broken">
         </img>
-        <a href="" style={style.text}>Our Favorite Products</a>
+        <a id="fav" href="" style={style.text}>Our Favorite Products</a>
         <img
+        id="cIcon"
         style={style.icons}
         src="https://s17.postimg.cc/bekt9otv3/compass_icon.png" alt="Sorry, image seems to be broken">
         </img>
         <a href="" style={style.text}>{this.props.data[0].product.category}</a>
 
         <img
+        id ="mIcon"
         style={style.icons}
         src="https://s17.postimg.cc/gpzpuevdb/map-pin.png" alt="Sorry, image seems to be broken">
         </img>
