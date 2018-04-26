@@ -19,7 +19,7 @@ class Title extends React.Component {
     }
 
     return (
-      <div style={style}>
+      <div id="title" style={style}>
         <div
           style={style.title}>{this.props.data[0].mainDisplay.title}
         </div>

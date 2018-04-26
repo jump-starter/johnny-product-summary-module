@@ -64,14 +64,14 @@ class Stats extends React.Component {
           <div></div>
         </div>
 
-        <div style={style.after}>
+        <div id="pledge" style={style.after}>
           <div style={style.pledged}>
             ${this.props.data[0].product.amtPledged}
           </div>
           <div>pledged of {this.props.data[0].target.amt} goal</div>
         </div>
 
-        <div style={style.after}>
+        <div id="backers" style={style.after}>
           <div style={style.nums}>{this.props.data[0].product.numBackers}</div>
           <div>backers</div>
         </div>
@@ -83,7 +83,7 @@ class Stats extends React.Component {
 
 
         <div>
-          <button type="button" style={style.backButton}>Back this project</button>
+          <button id="backButton" type="button" style={style.backButton}>Back this project</button>
         </div>
         <div>
           <button type="button" style={style.remindButton}>
@@ -91,7 +91,7 @@ class Stats extends React.Component {
             </img> Remind me
           </button>
         </div>
-        <div style={style.afterAllOrN}><a href="" style={style.allOrN}>All or nothing.</a> This project will only be funded if it reaches its goal by</div>
+        <div id="allOrN"style={style.afterAllOrN}><a href="" style={style.allOrN}>All or nothing.</a> This project will only be funded if it reaches its goal by</div>
       </div>
     )
   }
