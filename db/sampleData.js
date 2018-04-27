@@ -1,9 +1,10 @@
 let sampleData = [
   {
+    projectId: 0,
     mainDisplay: {
-      title: 'Refined Soft Mouse',
-      description: 'Minima et voluptatum rerum ea consequatur reiciendis enim eius. Est qui nam voluptatem. Aut corporis odio consequatur. Distinctio sint ut commodi praesentium asperiores. Commodi non accusamus. Id dicta sit eos similique.',
-      img: 'http://lorempixel.com/820/460/business',
+      title: 'Go Go Gadget Ski Boots',
+      description: 'Awesome Ski Boots With Gadgets.',
+      img: 'https://s17.postimg.cc/vfa18ro8v/inspector_gadget.png',
     },
     product: {
       name: 'Fantastic Cotton Car',
