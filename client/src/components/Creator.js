@@ -1,8 +1,8 @@
 import React from 'react';
 /************************************************************************/
 class Creator extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {
@@ -41,14 +41,9 @@ class Creator extends React.Component {
             </div>
           </div>
 
-
-
-
-
-
       )
   }
 }
-    /************************************************************************/
+/************************************************************************/
 
-    export default Creator;
+export default Creator;

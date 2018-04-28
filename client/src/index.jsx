@@ -9,16 +9,17 @@ import Footer from './components/Footer.js';
 import Stats from './components/Stats.js';
 /***********************************************************************/
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      data: null, /* data[0] --- default case */
+      data: data[0], /* data[0] --- default case */
     }
   }
 
   componentDidMount() {
     const context = this;
-    axios.get(`/api/${this.props.projectId}`)
+    console.log('component did mount');
+    axios.get(`http://52.15.172.97:80/api/${this.props.projectId}`)
       .then((response) => {
         console.log(response.data)
         context.setState({
