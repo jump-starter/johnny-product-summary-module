@@ -41,14 +41,14 @@ class Footer extends React.Component {
         style={style.icons}
         src="https://s17.postimg.cc/bekt9otv3/compass_icon.png" alt="Sorry, image seems to be broken">
         </img>
-        <a href="" style={style.text}>{this.props.data[0].product.category}</a>
+        <a href="" style={style.text}>{this.props.data.product.category}</a>
 
         <img
         id ="mIcon"
         style={style.icons}
         src="https://s17.postimg.cc/gpzpuevdb/map-pin.png" alt="Sorry, image seems to be broken">
         </img>
-        <a href="" style={style.text}>Location:{this.props.data[0].creator.location}</a>
+        <a href="" style={style.text}>Location:{this.props.data.creator.location}</a>
       </div>
     )
   }

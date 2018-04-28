@@ -21,9 +21,9 @@ class Title extends React.Component {
     return (
       <div id="title" style={style}>
         <div
-          style={style.title}>{this.props.data[0].mainDisplay.title}
+          style={style.title}>{this.props.data.mainDisplay.title}
         </div>
-        <div style={style.description}>{this.props.data[0].mainDisplay.description}
+        <div style={style.description}>{this.props.data.mainDisplay.description}
         </div>
       </div>
     )

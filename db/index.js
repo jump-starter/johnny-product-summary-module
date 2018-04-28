@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/main');
 
 let productSchema = new mongoose.Schema({
+    projectID: Number,
     mainDisplay: {
       title: String,
       description: String,
