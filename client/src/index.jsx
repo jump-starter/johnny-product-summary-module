@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import sampleData from '../../db/sampleData';
+import axios from 'axios';
+import data from '../../db/sampleData';
 import Creator from './components/Creator.js'
 import Title from './components/Title.js';
 import MainImage from './components/MainImage.js';
@@ -8,12 +9,29 @@ import Footer from './components/Footer.js';
 import Stats from './components/Stats.js';
 /***********************************************************************/
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      data: sampleData,
+      data: data[0], /* data[0] --- default case */
     }
   }
+
+  componentDidMount() {
+    const context = this;
+    console.log('component did mount');
+    axios.get(`http://52.15.172.97:80/api/${this.props.projectId}`)
+      .then((response) => {
+        console.log(response.data)
+        context.setState({
+          data: response.data[0]
+        });
+      })
+      .catch((error) => {
+        console.log('ERROR: could not fetch project:', error);
+      });
+  }
+
+
 
   render() {
     console.log(this.state.data)
@@ -45,4 +63,8 @@ class App extends React.Component {
 
 }
 
-ReactDOM.render(<App />, document.getElementById('Summary'));
+window.React = React;
+window.ReactDOM = ReactDOM;
+window.App = App;
+
+// ReactDOM.render(<App />, document.getElementById('Summary'));

@@ -2,8 +2,8 @@ import React from 'react';
 
 /************************************************************************/
 class MainImage extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {
@@ -14,10 +14,10 @@ class MainImage extends React.Component {
       alignSelf: 'stretch',
       overflow: 'hidden',
     }
-    console.log(this.props.data[2].mainDisplay.img);
+
     return (
       <div className="MainImage" style={style}>
-        <img src={this.props.data[0].mainDisplay.img} alt="Sorry, image seems to be broken" ></img>
+        <img src={this.props.data.mainDisplay.img} alt="Sorry, image seems to be broken" ></img>
       </div>
     )
   }

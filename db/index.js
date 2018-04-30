@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/main');
+mongoose.connect('mongodb://admin:notairbnb@ds161459.mlab.com:61459/summary-module');
 
 let productSchema = new mongoose.Schema({
+    projectID: Number,
     mainDisplay: {
       title: String,
       description: String,

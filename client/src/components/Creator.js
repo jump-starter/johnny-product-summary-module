@@ -1,11 +1,12 @@
 import React from 'react';
 /************************************************************************/
 class Creator extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {
+    console.log(this.props.data)
     const style = {
       gridRow: '2 / span 1',
       gridColumn: '2 / span 1',
@@ -29,25 +30,20 @@ class Creator extends React.Component {
 
           <div id="creator" style={style}>
             <img
-              src={this.props.data[0].creator.avatarImg}
+              src={this.props.data.creator.avatarImg}
               style={style.avatarImg}>
             </img>
             <span >
-              <a style={style.name} href="">By {" "} {this.props.data[0].creator.name}</a>
+              <a style={style.name} href="">By {" "} {this.props.data.creator.name}</a>
             </span>
             <div id="numProducts" style={style.productCount}>
               First created
             </div>
           </div>
 
-
-
-
-
-
       )
   }
 }
-    /************************************************************************/
+/************************************************************************/
 
-    export default Creator;
+export default Creator;

@@ -13,15 +13,15 @@ app.use(express.static(path.join(__dirname, '/../client/public')));
 const port = 3001;
 
 
-app.get('/main', (req, res) => {
+app.get('/api/:id', (req, res) => {
 
   console.log(req, 'GET :: server');
 
-  let db = mongoose.connect('localhost:27017/main');
+  // let db = mongoose.connect('localhost:27017/main');
 
-  Product.find({}).exec(function (err, docs) {
+  Product.find({projectID: req.params.id}).exec(function (err, docs) {
     if (err) {
-      console.log('err');
+      console.log('err: ', err);
       res.status(400).end();
     } else {
       console.log(docs)
