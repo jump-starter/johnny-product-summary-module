@@ -18,10 +18,8 @@ class App extends React.Component {
 
   componentDidMount() {
     const context = this;
-    console.log('component did mount');
     axios.get(`http://52.15.172.97:80/api/${this.props.projectId}`)
       .then((response) => {
-        console.log(response.data)
         context.setState({
           data: response.data[0]
         });
@@ -34,7 +32,6 @@ class App extends React.Component {
 
 
   render() {
-    console.log(this.state.data)
     const style = {
       display: "grid",
       gridTemplateColumns: "180px 200px 620px 235px 235px 180px",
