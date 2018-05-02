@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const Product = require('../db/index.js');
 const cors = require('cors');
 const app = express();
+const saveProducts = require('../db/saveProducts');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -12,19 +13,14 @@ app.use(express.static(path.join(__dirname, '/../client/public')));
 
 const port = 3001;
 
+saveProducts();
 
 app.get('/api/:id', (req, res) => {
-
-  console.log(req, 'GET :: server');
-
-  // let db = mongoose.connect('localhost:27017/main');
-
-  Product.find({projectID: req.params.id}).exec(function (err, docs) {
+  Product.find({projectID: req.params.id}).exec((err, docs) => {
     if (err) {
       console.log('err: ', err);
       res.status(400).end();
     } else {
-      console.log(docs)
       res.status(200).json(docs);
     }
   });
