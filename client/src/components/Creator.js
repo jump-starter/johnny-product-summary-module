@@ -6,7 +6,6 @@ class Creator extends React.Component {
   }
 
   render() {
-    console.log(this.props.data)
     const style = {
       gridRow: '2 / span 1',
       gridColumn: '2 / span 1',

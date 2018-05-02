@@ -1,3 +1,8 @@
+// const { Client } = require('pg');
+// const client = new Client();
+
+// client.connect();
+
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://admin:notairbnb@ds161459.mlab.com:61459/summary-module');
