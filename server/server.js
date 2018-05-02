@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, '/../client/public')));
 
 const port = 3001;
 
-saveProducts();
+// saveProducts();
 
 app.get('/api/:id', (req, res) => {
   Product.find({projectID: req.params.id}).exec((err, docs) => {
