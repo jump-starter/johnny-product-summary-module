@@ -10,9 +10,7 @@ const client = new Client({
   port: 5432,
 });
 
-client.connect()
-  .then(() => console.log('connected'))
-  .catch(() => console.log('connection error'));
+module.exports.client = client;
 
 // MongoDB Connection
 mongoose.connect('mongodb://localhost/summary-module');

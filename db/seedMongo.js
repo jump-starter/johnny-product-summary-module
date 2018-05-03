@@ -7,7 +7,7 @@ const getRndIntIncl = (min, max) => {
   return Math.floor(Math.random() * ((maximum - minimum) + 1)) + minimum;
 };
 
-const saveProducts = () => {
+const seedMongo = () => {
   db.Product.collection.drop();
   for (let i = 0; i < 100; i += 1) {
     const instance = new db.Product({
@@ -43,4 +43,4 @@ const saveProducts = () => {
   }
 };
 
-module.exports = saveProducts;
+module.exports = seedMongo;
