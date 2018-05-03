@@ -1,4 +1,4 @@
-let sampleData = [
+const sampleData = [
   {
     projectId: 0,
     mainDisplay: {
@@ -54,13 +54,13 @@ let sampleData = [
     },
     product: {
       name: 'Small Soft Tuna',
-     category: 'Industrial',
-     numBackers: 7,
-     amtPledged: 35611,
+      category: 'Industrial',
+      numBackers: 7,
+      amtPledged: 35611,
     },
     target: {
-     endDate: '6/14/2018',
-     amt: 26921,
+      endDate: '6/14/2018',
+      amt: 26921,
     },
     creator: {
       name: 'Chance Walsh',
@@ -69,7 +69,7 @@ let sampleData = [
       numberProducts: 1,
     },
   },
-]
+];
 
 
 export default sampleData;
