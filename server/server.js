@@ -5,7 +5,8 @@ const db = require('../db/index.js');
 const cors = require('cors');
 
 const app = express();
-const saveProducts = require('../db/saveProducts');
+const seedMongo = require('../db/seedMongo');
+const seedPostgres = require('../db/seedPostgres');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -13,7 +14,8 @@ app.use(express.static(path.join(__dirname, '/../client/public')));
 
 const port = 3001;
 
-saveProducts();
+// seedMongo();
+seedPostgres();
 
 app.get('/api/:id', (req, res) => {
   db.Product.find({ projectID: req.params.id }).exec((err, docs) => {

@@ -4,6 +4,7 @@
   "description": "Front End Capstone Project :: Kickstarter :: Primary Component",
   "main": "index.js",
   "scripts": {
+    "seed": "node server/server.js",
     "reactD": "webpack -d --watch",
     "serverD": "nodemon server/server.js",
     "test": "jest",
