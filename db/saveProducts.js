@@ -1,5 +1,5 @@
 const faker = require('faker');
-const Product = require('./index.js');
+const db = require('./index.js');
 
 const getRndIntIncl = (min, max) => {
   const minimum = Math.ceil(min);
@@ -8,9 +8,9 @@ const getRndIntIncl = (min, max) => {
 };
 
 const saveProducts = () => {
-  Product.collection.drop();
-  for (let i = 0; i < 100; i++) {
-    const instance = new Product({
+  db.Product.collection.drop();
+  for (let i = 0; i < 100; i += 1) {
+    const instance = new db.Product({
       projectID: i,
       mainDisplay: {
         title: faker.commerce.productName(),
@@ -36,7 +36,7 @@ const saveProducts = () => {
     });
     instance.save((err, res) => {
       if (err) {
-        return console.error(err);
+        console.log(err);
       }
       return res;
     });
