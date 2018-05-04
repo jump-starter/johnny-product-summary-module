@@ -8,15 +8,19 @@ const seedMongo = () => {
   }
 
   let projectCount = 1;
-  for (let i = 0; i < 1e1; i += 1) {
-    const newProjects = 1e1;
-    for (let j = 0; j < newProjects; j += 1) {  
-      const newUsers = getRndInteger(0, 20);
-      const newFaqsCount = getRndInteger(0, 10);
-      const newUpdatesCount = getRndInteger(0, 10);
-      const newCommentsCount = getRndInteger(0, 10);
+  let userCount = 1;
 
-      let _users = [];
+  let numBatches = 1e3;
+  for (let i = 0; i < numBatches; i += 1) {
+    let _projects = [];
+    let _users = [];
+
+    const newProjects = 1e4;
+    for (let j = 0; j < newProjects; j += 1) {
+
+      let totalPledgeAmt = 0;
+      let _pledges = [];
+      const newUsers = getRndInteger(0, 20);
       for (let k = 0; k < newUsers; k += 1) {
         const user = {
           created_date: faker.date.past(1, '2016-01-01').toISOString().slice(0, 19).replace('T', ' '),
@@ -28,46 +32,51 @@ const seedMongo = () => {
           country: faker.address.countryCode(),
           avatar_url: `https://s3.amazonaws.com/jumpstarter-pics/headshot${getRndInteger(1, 100)}.jpg`,
         };
-        _users.push(users);
+        _users.push(user);
+        const userId = userCount + k;
+        const pledgeAmt = getRndInteger(0, 1000);
+        totalPledgeAmt += pledgeAmt;
+        _pledges.push({ user_id: userId, pledge_amt: pledgeAmt });
       }
+      userCount += newUsers;
 
       let _faqs = [];
+      const newFaqsCount = getRndInteger(0, 10);
       for (let k = 0; k < newFaqsCount; k += 1) {
         const faq = {
           created_date: faker.date.past(1, '2018-01-01').toISOString().slice(0, 19).replace('T', ' '),
           title: faker.lorem.sentence(),
           description: faker.lorem.sentences(),
-          project_id: projectCount + j,
         };
         _faqs.push(faq);
       }
 
       let _updates = [];
+      const newUpdatesCount = getRndInteger(0, 10);
       for (let k = 0; k < newUpdatesCount; k += 1) {
         const update = {
           created_date: faker.date.past(1, '2018-01-01').toISOString().slice(0, 19).replace('T', ' '),
           title: faker.lorem.sentence(),
           description: faker.lorem.sentences(),
-          project_id: projectCount + j,
         };
         _updates.push(update);
       }
 
       let _comments = [];
+      const newCommentsCount = getRndInteger(0, 10);
       for (let k = 0; k < newCommentsCount; k += 1) {
         const comment = {
           created_date: faker.date.past(1, '2018-01-01').toISOString().slice(0, 19).replace('T', ' '),
           description: faker.lorem.sentences(),
-          project_id: projectCount + j,
           user_id: getRndInteger(1, userCount),
         };
         _comments.push(comment);
       }
-      
-      _projects = {
+
+      const project = {
         created_date: faker.date.past(1, '2017-01-01').toISOString().slice(0, 19).replace('T', ' '),
         end_date: faker.date.future(1).toISOString().slice(0, 19).replace('T', ' '),
-        title_date: faker.commerce.productName(),
+        title: faker.commerce.productName(),
         description: faker.lorem.sentences(),
         category: faker.commerce.department(),
         image_url: `https://s3.amazonaws.com/jumpstarter-pics/product${getRndInteger(1, 1000)}.jpg`,
@@ -79,15 +88,29 @@ const seedMongo = () => {
         comments_count: newCommentsCount,
         comments: _comments,
         total_pledge_amt: totalPledgeAmt,
+        pledges_count: _pledges.length,
+        pledges: _pledges,
       };
+      _projects.push(project);
+    }
+    projectCount += newProjects;
+
+    if (i === 0) {
+      _projects = "[" + JSON.stringify(_projects).slice(1, -1);
+      _users = "[" + JSON.stringify(_users).slice(1, -1);
+    } else if (i === numBatches - 1 ) {
+      _projects = ", " + JSON.stringify(_projects).slice(1, -1) + "]";
+      _users = ", " + JSON.stringify(_users).slice(1, -1) + "]";
+    } else {
+      _projects = "," + JSON.stringify(_projects).slice(1, -1);
+      _users = "," + JSON.stringify(_users).slice(1, -1);
+    }
+    fs.appendFileSync('./db/_projects.json', _projects);
+    fs.appendFileSync('./db/_users.json', _users);
   }
-  projectCount += newProjects;
-  fs.appendFileSync('./db/_projects.json', JSON.stringify(_projects));
-  fs.appendFileSync('./db/_users.json', JSON.stringify(_users));
 };
 
 module.exports = seedMongo;
-
 
 // db.Product.collection.drop();
 //   for (let i = 0; i < 100; i += 1) {
