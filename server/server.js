@@ -5,7 +5,7 @@ const db = require('../db/index.js');
 const cors = require('cors');
 
 const app = express();
-const seedMongo = require('../db/seedMongo');
+// const seedMongo = require('../db/seedMongo');
 const seedPostgres = require('../db/seedPostgres');
 
 app.use(cors());
