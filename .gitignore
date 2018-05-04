@@ -4,3 +4,4 @@ z ex.
 bundle.js
 *.csv
 /db/img
+*.json
