@@ -22,7 +22,11 @@ CREATE TABLE projects (
   description text NOT NULL,
   category varchar(50) NOT NULL,
   image_url varchar(255) NOT NULL,
-  creator_id integer references users(id)
+  creator_id integer references users(id),
+  faqs_count integer DEFAULT 0,
+  updates_count integer DEFAULT 0,
+  comments_count integer DEFAULT 0,
+  total_pledge_amt decimal DEFAULT 0
 );
 
 CREATE TABLE projects_users (
@@ -33,7 +37,7 @@ CREATE TABLE projects_users (
   user_id integer references users(id)
 );
 
-CREATE TABLE faq (
+CREATE TABLE faqs (
   id serial PRIMARY KEY,
   created_at timestamp with time zone DEFAULT current_timestamp,
   title varchar (255) NOT NULL,
@@ -57,9 +61,4 @@ CREATE TABLE comments (
   user_id integer references users(id)
 );
 
-CREATE TABLE reminders (
-  id serial PRIMARY KEY,
-  created_at timestamp with time zone DEFAULT current_timestamp,
-  project_id integer references projects(id),
-  user_id integer references users(id)
-);
+\c postgres;
