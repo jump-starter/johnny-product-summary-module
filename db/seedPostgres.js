@@ -9,7 +9,7 @@ const seedPostgres = () => {
 
   let userCount = 1;
   let projectCount = 1;
-  for (let i = 0; i < 1e1; i += 1) {
+  for (let i = 0; i < 1e3; i += 1) {
     let _projects = '';
     let _users = '';
     let _projects_users = '';
@@ -17,7 +17,7 @@ const seedPostgres = () => {
     let _updates = '';
     let _comments = '';
 
-    const newProjects = 1e1;
+    const newProjects = 1e4;
     for (let j = 0; j < newProjects; j += 1) {
       const newUsers = getRndInteger(0, 20);
       let totalPledgeAmt = 0;
