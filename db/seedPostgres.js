@@ -55,7 +55,8 @@ const seedPostgres = () => {
         `${newFaqs},` + // faqs_count
         `${newUpdates},` + // updates_count
         `${newComments},` + // comments_count
-        `${totalPledgeAmt}\n`; // total_pledge_amt
+        `${totalPledgeAmt},` + // total_pledge_amt
+        `${newUsers}\n`; // pledges_count
       userCount += newUsers;
 
       for (let l = 0; l < newFaqs; l += 1) {
