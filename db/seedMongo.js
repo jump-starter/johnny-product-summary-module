@@ -10,16 +10,15 @@ const seedMongo = () => {
   let projectCount = 1;
   let userCount = 1;
 
-  let numBatches = 1e3;
+  const numBatches = 1e3;
   for (let i = 0; i < numBatches; i += 1) {
     let _projects = [];
     let _users = [];
 
     const newProjects = 1e4;
     for (let j = 0; j < newProjects; j += 1) {
-
       let totalPledgeAmt = 0;
-      let _pledges = [];
+      const _pledges = [];
       const newUsers = getRndInteger(0, 20);
       for (let k = 0; k < newUsers; k += 1) {
         const user = {
@@ -40,7 +39,7 @@ const seedMongo = () => {
       }
       userCount += newUsers;
 
-      let _faqs = [];
+      const _faqs = [];
       const newFaqsCount = getRndInteger(0, 10);
       for (let k = 0; k < newFaqsCount; k += 1) {
         const faq = {
@@ -51,7 +50,7 @@ const seedMongo = () => {
         _faqs.push(faq);
       }
 
-      let _updates = [];
+      const _updates = [];
       const newUpdatesCount = getRndInteger(0, 10);
       for (let k = 0; k < newUpdatesCount; k += 1) {
         const update = {
@@ -62,7 +61,7 @@ const seedMongo = () => {
         _updates.push(update);
       }
 
-      let _comments = [];
+      const _comments = [];
       const newCommentsCount = getRndInteger(0, 10);
       for (let k = 0; k < newCommentsCount; k += 1) {
         const comment = {
@@ -97,14 +96,14 @@ const seedMongo = () => {
     projectCount += newProjects;
 
     if (i === 0) {
-      _projects = "[" + JSON.stringify(_projects).slice(1, -1);
-      _users = "[" + JSON.stringify(_users).slice(1, -1);
-    } else if (i === numBatches - 1 ) {
-      _projects = ", " + JSON.stringify(_projects).slice(1, -1) + "]";
-      _users = ", " + JSON.stringify(_users).slice(1, -1) + "]";
+      _projects = `[${JSON.stringify(_projects).slice(1, -1)}`;
+      _users = `[${JSON.stringify(_users).slice(1, -1)}`;
+    } else if (i === numBatches - 1) {
+      _projects = `, ${JSON.stringify(_projects).slice(1, -1)}]`;
+      _users = `, ${JSON.stringify(_users).slice(1, -1)}]`;
     } else {
-      _projects = "," + JSON.stringify(_projects).slice(1, -1);
-      _users = "," + JSON.stringify(_users).slice(1, -1);
+      _projects = `,${JSON.stringify(_projects).slice(1, -1)}`;
+      _users = `,${JSON.stringify(_users).slice(1, -1)}`;
     }
     console.log(projectCount);
     fs.appendFileSync('./db/_projects.json', _projects);
