@@ -74,6 +74,7 @@ const seedMongo = () => {
       }
 
       const project = {
+        id: projectCount + j,
         created_date: faker.date.past(1, '2017-01-01').toISOString().slice(0, 19).replace('T', ' '),
         end_date: faker.date.future(1).toISOString().slice(0, 19).replace('T', ' '),
         title: faker.commerce.productName(),
@@ -105,6 +106,7 @@ const seedMongo = () => {
       _projects = "," + JSON.stringify(_projects).slice(1, -1);
       _users = "," + JSON.stringify(_users).slice(1, -1);
     }
+    console.log(projectCount);
     fs.appendFileSync('./db/_projects.json', _projects);
     fs.appendFileSync('./db/_users.json', _users);
   }
