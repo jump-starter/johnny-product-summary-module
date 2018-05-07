@@ -1,5 +1,5 @@
 import React from 'react';
-/************************************************************************/
+/** ********************************************************************* */
 class Creator extends React.Component {
   constructor(props) {
     super(props);
@@ -23,26 +23,25 @@ class Creator extends React.Component {
         color: 'rgb(149, 149, 158)',
       },
 
-    }
+    };
 
-      return (
+    return (
 
-          <div id="creator" style={style}>
-            <img
-              src={this.props.data.creator.avatarImg}
-              style={style.avatarImg}>
-            </img>
-            <span >
-              <a style={style.name} href="">By {" "} {this.props.data.creator.name}</a>
-            </span>
-            <div id="numProducts" style={style.productCount}>
+      <div id="creator" style={style}>
+        <img
+          src={this.props.data.creator.avatarImg}
+          style={style.avatarImg}
+        />
+        <span >
+          <a style={style.name} href="">By {' '} {this.props.data.creator.name}</a>
+        </span>
+        <div id="numProducts" style={style.productCount}>
               First created
-            </div>
-          </div>
+        </div>
+      </div>
 
-      )
+    );
   }
 }
-/************************************************************************/
 
 export default Creator;

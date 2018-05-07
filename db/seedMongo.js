@@ -12,13 +12,13 @@ const seedMongo = () => {
 
   const numBatches = 1e3;
   for (let i = 0; i < numBatches; i += 1) {
-    let _projects = [];
-    let _users = [];
+    let Projects = [];
+    let Users = [];
 
     const newProjects = 1e4;
     for (let j = 0; j < newProjects; j += 1) {
       let totalPledgeAmt = 0;
-      const _pledges = [];
+      const Pledges = [];
       const newUsers = getRndInteger(0, 20);
       for (let k = 0; k < newUsers; k += 1) {
         const user = {
@@ -31,15 +31,15 @@ const seedMongo = () => {
           country: faker.address.countryCode(),
           avatar_url: `https://s3.amazonaws.com/jumpstarter-pics/headshot${getRndInteger(1, 100)}.jpg`,
         };
-        _users.push(user);
+        Users.push(user);
         const userId = userCount + k;
         const pledgeAmt = getRndInteger(0, 1000);
         totalPledgeAmt += pledgeAmt;
-        _pledges.push({ user_id: userId, pledge_amt: pledgeAmt });
+        Pledges.push({ user_id: userId, pledge_amt: pledgeAmt });
       }
       userCount += newUsers;
 
-      const _faqs = [];
+      const Faqs = [];
       const newFaqsCount = getRndInteger(0, 10);
       for (let k = 0; k < newFaqsCount; k += 1) {
         const faq = {
@@ -47,10 +47,10 @@ const seedMongo = () => {
           title: faker.lorem.sentence(),
           description: faker.lorem.sentences(),
         };
-        _faqs.push(faq);
+        Faqs.push(faq);
       }
 
-      const _updates = [];
+      const Updates = [];
       const newUpdatesCount = getRndInteger(0, 10);
       for (let k = 0; k < newUpdatesCount; k += 1) {
         const update = {
@@ -58,10 +58,10 @@ const seedMongo = () => {
           title: faker.lorem.sentence(),
           description: faker.lorem.sentences(),
         };
-        _updates.push(update);
+        Updates.push(update);
       }
 
-      const _comments = [];
+      const Comments = [];
       const newCommentsCount = getRndInteger(0, 10);
       for (let k = 0; k < newCommentsCount; k += 1) {
         const comment = {
@@ -69,7 +69,7 @@ const seedMongo = () => {
           description: faker.lorem.sentences(),
           user_id: getRndInteger(1, userCount),
         };
-        _comments.push(comment);
+        Comments.push(comment);
       }
 
       const project = {
@@ -82,32 +82,31 @@ const seedMongo = () => {
         image_url: `https://s3.amazonaws.com/jumpstarter-pics/product${getRndInteger(1, 1000)}.jpg`,
         creator_id: getRndInteger(userCount, userCount + newUsers),
         faqs_count: newFaqsCount,
-        faqs: _faqs,
+        faqs: Faqs,
         updates_count: newUpdatesCount,
-        updates: _updates,
+        updates: Updates,
         comments_count: newCommentsCount,
-        comments: _comments,
+        comments: Comments,
         total_pledge_amt: totalPledgeAmt,
-        pledges_count: _pledges.length,
-        pledges: _pledges,
+        pledges_count: Pledges.length,
+        pledges: Pledges,
       };
-      _projects.push(project);
+      Projects.push(project);
     }
     projectCount += newProjects;
 
     if (i === 0) {
-      _projects = `[${JSON.stringify(_projects).slice(1, -1)}`;
-      _users = `[${JSON.stringify(_users).slice(1, -1)}`;
+      Projects = `[${JSON.stringify(Projects).slice(1, -1)}`;
+      Users = `[${JSON.stringify(Users).slice(1, -1)}`;
     } else if (i === numBatches - 1) {
-      _projects = `, ${JSON.stringify(_projects).slice(1, -1)}]`;
-      _users = `, ${JSON.stringify(_users).slice(1, -1)}]`;
+      Projects = `, ${JSON.stringify(Projects).slice(1, -1)}]`;
+      Users = `, ${JSON.stringify(Users).slice(1, -1)}]`;
     } else {
-      _projects = `,${JSON.stringify(_projects).slice(1, -1)}`;
-      _users = `,${JSON.stringify(_users).slice(1, -1)}`;
+      Projects = `,${JSON.stringify(Projects).slice(1, -1)}`;
+      Users = `,${JSON.stringify(Users).slice(1, -1)}`;
     }
-    console.log(projectCount);
-    fs.appendFileSync('./db/_projects.json', _projects);
-    fs.appendFileSync('./db/_users.json', _users);
+    fs.appendFileSync('./db/Projects.json', Projects);
+    fs.appendFileSync('./db/Users.json', Users);
   }
 };
 

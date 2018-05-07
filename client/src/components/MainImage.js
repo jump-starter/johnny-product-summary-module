@@ -1,6 +1,5 @@
 import React from 'react';
 
-/************************************************************************/
 class MainImage extends React.Component {
   constructor(props) {
     super(props);
@@ -13,17 +12,14 @@ class MainImage extends React.Component {
       justifySelf: 'stretch',
       alignSelf: 'stretch',
       overflow: 'hidden',
-    }
+    };
 
     return (
       <div className="MainImage" style={style}>
-        <img src={this.props.data.mainDisplay.img} alt="Sorry, image seems to be broken" ></img>
+        <img src={this.props.data.mainDisplay.img} alt="Sorry, image seems to be broken" />
       </div>
-    )
+    );
   }
-
-
 }
-/************************************************************************/
 
 export default MainImage;

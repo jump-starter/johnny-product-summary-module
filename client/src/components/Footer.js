@@ -1,5 +1,5 @@
 import React from 'react';
-/************************************************************************/
+/** ********************************************************************* */
 class Footer extends React.Component {
   constructor(props) {
     super(props);
@@ -25,36 +25,38 @@ class Footer extends React.Component {
         color: 'rgb(40, 40, 40)',
         alignSelf: 'center',
       },
-    }
+    };
 
     return (
       <div
-      className="Footer" style={style}>
+        className="Footer"
+        style={style}
+      >
 
         <img
-        style={style.icons}
-        src="https://s17.postimg.cc/rj782wx7z/Untitled_2.png" alt="Sorry, image seems to be broken">
-        </img>
+          style={style.icons}
+          src="https://s17.postimg.cc/rj782wx7z/Untitled_2.png"
+          alt="Sorry, image seems to be broken"
+        />
         <a id="fav" href="" style={style.text}>Our Favorite Products</a>
         <img
-        id="cIcon"
-        style={style.icons}
-        src="https://s17.postimg.cc/bekt9otv3/compass_icon.png" alt="Sorry, image seems to be broken">
-        </img>
+          id="cIcon"
+          style={style.icons}
+          src="https://s17.postimg.cc/bekt9otv3/compass_icon.png"
+          alt="Sorry, image seems to be broken"
+        />
         <a href="" style={style.text}>{this.props.data.product.category}</a>
 
         <img
-        id ="mIcon"
-        style={style.icons}
-        src="https://s17.postimg.cc/gpzpuevdb/map-pin.png" alt="Sorry, image seems to be broken">
-        </img>
+          id="mIcon"
+          style={style.icons}
+          src="https://s17.postimg.cc/gpzpuevdb/map-pin.png"
+          alt="Sorry, image seems to be broken"
+        />
         <a href="" style={style.text}>Location:{this.props.data.creator.location}</a>
       </div>
-    )
+    );
   }
-
-
 }
-/************************************************************************/
 
 export default Footer;
