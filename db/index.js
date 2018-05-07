@@ -1,5 +1,5 @@
 const { Client } = require('pg');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
 // Postgres Connection
 const client = new Client({
@@ -10,7 +10,7 @@ const client = new Client({
   port: 5432,
 });
 
-// module.exports.client = client;
+module.exports.client = client;
 
 // MongoDB Connection
 // mongoose.connect('mongodb://localhost/summary-module');

@@ -1,5 +1,5 @@
 import React from 'react';
-/************************************************************************/
+
 class Stats extends React.Component {
   constructor(props) {
     super(props);
@@ -35,7 +35,7 @@ class Stats extends React.Component {
         backgroundColor: 'rgb(255, 255, 255)',
         width: '200px',
         height: '48px',
-        fontFamily: "Karla, Helvetica Neue, Helvetica, Arial, sans-serif",
+        fontFamily: 'Karla, Helvetica Neue, Helvetica, Arial, sans-serif',
         borderWidth: '1px',
         borderColor: '#80809E',
         // borderColor: 'rgb(40, 40, 40)',
@@ -56,12 +56,12 @@ class Stats extends React.Component {
         color: 'rgb(40, 40, 40)',
         fontSize: '12px',
       },
-    }
+    };
 
     return (
       <div className="Stats" style={style}>
         <div style={style.progressbar}>
-          <div></div>
+          <div />
         </div>
 
         <div id="pledge" style={style.after}>
@@ -87,23 +87,16 @@ class Stats extends React.Component {
         </div>
         <div>
           <button type="button" style={style.remindButton}>
-            <img src="https://s17.postimg.cc/hs9wcy6gv/heart-icon.png" alt="" height="16" width="16">
-            </img> Remind me
+            <img src="https://s17.postimg.cc/hs9wcy6gv/heart-icon.png" alt="" height="16" width="16" /> Remind me
           </button>
         </div>
         <div id="allOrN"style={style.afterAllOrN}><a href="" style={style.allOrN}>All or nothing.</a> This project will only be funded if it reaches its goal by</div>
       </div>
-    )
+    );
   }
-
-
 }
-/************************************************************************/
 
 export default Stats;
-
-
-
 
 
 // progressbar: {

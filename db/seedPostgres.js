@@ -10,19 +10,19 @@ const seedPostgres = () => {
   let userCount = 1;
   let projectCount = 1;
   for (let i = 0; i < 1e3; i += 1) {
-    let _projects = '';
-    let _users = '';
-    let _projects_users = '';
-    let _faqs = '';
-    let _updates = '';
-    let _comments = '';
+    let Projects = '';
+    let Users = '';
+    let ProjectsUsers = '';
+    let Faqs = '';
+    let Updates = '';
+    let Comments = '';
 
     const newProjects = 1e4;
     for (let j = 0; j < newProjects; j += 1) {
       const newUsers = getRndInteger(0, 20);
       let totalPledgeAmt = 0;
       for (let k = 0; k < newUsers; k += 1) {
-        _users +=
+        Users +=
           `${faker.date.past(1, '2016-01-01').toISOString().slice(0, 19).replace('T', ' ')},` + // created_date
           `${faker.name.firstName()},` + // first_name
           `${faker.name.lastName()},` + // last_name
@@ -34,7 +34,7 @@ const seedPostgres = () => {
 
         const pledgeAmt = getRndInteger(0, 1000);
         totalPledgeAmt += pledgeAmt;
-        _projects_users +=
+        ProjectsUsers +=
           `${faker.date.past(1, '2018-01-01').toISOString().slice(0, 19).replace('T', ' ')},` + // created_date
           `${pledgeAmt},` + // pledge_amt
           `${projectCount + j},` + // project_id
@@ -44,7 +44,7 @@ const seedPostgres = () => {
       const newFaqs = getRndInteger(0, 10);
       const newUpdates = getRndInteger(0, 10);
       const newComments = getRndInteger(0, 10);
-      _projects +=
+      Projects +=
         `${faker.date.past(1, '2017-01-01').toISOString().slice(0, 19).replace('T', ' ')},` + // created_date
         `${faker.date.future(1).toISOString().slice(0, 19).replace('T', ' ')},` + // end_date
         `${faker.commerce.productName()},` + // title
@@ -60,7 +60,7 @@ const seedPostgres = () => {
       userCount += newUsers;
 
       for (let l = 0; l < newFaqs; l += 1) {
-        _faqs +=
+        Faqs +=
         `${faker.date.past(1, '2018-01-01').toISOString().slice(0, 19).replace('T', ' ')},` + // created_date
         `${faker.lorem.sentence()},` + // title
         `${faker.lorem.sentences()},` + // description
@@ -68,7 +68,7 @@ const seedPostgres = () => {
       }
 
       for (let l = 0; l < newUpdates; l += 1) {
-        _updates +=
+        Updates +=
         `${faker.date.past(1, '2018-01-01').toISOString().slice(0, 19).replace('T', ' ')},` + // created_date
         `${faker.lorem.sentence()},` + // title
         `${faker.lorem.sentences()},` + // description
@@ -76,7 +76,7 @@ const seedPostgres = () => {
       }
 
       for (let l = 0; l < newComments; l += 1) {
-        _comments +=
+        Comments +=
           `${faker.date.past(1, '2018-01-01').toISOString().slice(0, 19).replace('T', ' ')},` + // created_date
           `${faker.lorem.sentences()},` + // description
           `${projectCount + j},` + // project_id
@@ -84,12 +84,12 @@ const seedPostgres = () => {
       }
     }
     projectCount += newProjects;
-    fs.appendFileSync('./db/_projects.csv', _projects);
-    fs.appendFileSync('./db/_users.csv', _users);
-    fs.appendFileSync('./db/_projects_users.csv', _projects_users);
-    fs.appendFileSync('./db/_faqs.csv', _faqs);
-    fs.appendFileSync('./db/_updates.csv', _updates);
-    fs.appendFileSync('./db/_comments.csv', _comments);
+    fs.appendFileSync('./db/Projects.csv', Projects);
+    fs.appendFileSync('./db/Users.csv', Users);
+    fs.appendFileSync('./db/ProjectsUsers.csv', ProjectsUsers);
+    fs.appendFileSync('./db/Faqs.csv', Faqs);
+    fs.appendFileSync('./db/Updates.csv', Updates);
+    fs.appendFileSync('./db/Comments.csv', Comments);
   }
 };
 
