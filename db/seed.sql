@@ -27,6 +27,7 @@ CREATE TABLE projects (
   category varchar(50) NOT NULL,
   city varchar(50) NOT NULL,
   state varchar(50) NOT NULL,
+  country varchar(50) NOT NULL,
   image_url varchar(255) NOT NULL,
   faqs_count integer DEFAULT 0,
   updates_count integer DEFAULT 0,
