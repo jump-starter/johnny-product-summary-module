@@ -11,7 +11,7 @@ CREATE TABLE users (
   city varchar(50) NOT NULL,
   state varchar(50) NOT NULL,
   country varchar(50) NOT NULL,
-  avatar_url varchar(255) NOT NULL,
+  avatar_url varchar(255) NOT NULL
   -- projects_created_count integer DEFAULT 0 -- instead count creator_id from projects
   -- total_pledge_amt decimal DEFAULT 0, -- instead join on projects_users and sum
   -- pledges_count decimal DEFAULT 0, -- instead join on projects_users and count
