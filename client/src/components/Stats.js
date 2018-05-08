@@ -66,13 +66,13 @@ class Stats extends React.Component {
 
         <div id="pledge" style={style.after}>
           <div style={style.pledged}>
-            ${this.props.data.product.amtPledged}
+            ${this.props.data.total_pledge_amt}
           </div>
-          <div>pledged of {this.props.data.target.amt} goal</div>
+          <div>pledged of {this.props.data.goal_amt} goal</div>
         </div>
 
         <div id="backers" style={style.after}>
-          <div style={style.nums}>{this.props.data.product.numBackers}</div>
+          <div style={style.nums}>{this.props.data.pledges_count}</div>
           <div>backers</div>
         </div>
 

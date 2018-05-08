@@ -22,9 +22,9 @@ class Title extends React.Component {
       <div id="title" style={style}>
         <div
           style={style.title}
-        >{this.props.data.mainDisplay.title}
+        >{this.props.data.title}
         </div>
-        <div style={style.description}>{this.props.data.mainDisplay.description}
+        <div style={style.description}>{this.props.data.description}
         </div>
       </div>
     );

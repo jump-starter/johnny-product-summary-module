@@ -16,7 +16,7 @@ class MainImage extends React.Component {
 
     return (
       <div className="MainImage" style={style}>
-        <img src={this.props.data.mainDisplay.img} alt="Sorry, image seems to be broken" />
+        <img src={this.props.data.image_url} alt="Sorry, image seems to be broken" />
       </div>
     );
   }

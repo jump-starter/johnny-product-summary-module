@@ -45,7 +45,7 @@ class Footer extends React.Component {
           src="https://s17.postimg.cc/bekt9otv3/compass_icon.png"
           alt="Sorry, image seems to be broken"
         />
-        <a href="" style={style.text}>{this.props.data.product.category}</a>
+        <a href="" style={style.text}>{this.props.data.category}</a>
 
         <img
           id="mIcon"
@@ -53,7 +53,7 @@ class Footer extends React.Component {
           src="https://s17.postimg.cc/gpzpuevdb/map-pin.png"
           alt="Sorry, image seems to be broken"
         />
-        <a href="" style={style.text}>Location:{this.props.data.creator.location}</a>
+        <a href="" style={style.text}>{this.props.data.city}, {this.props.data.state}</a>
       </div>
     );
   }
