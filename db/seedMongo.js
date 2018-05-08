@@ -23,7 +23,7 @@ const seedMongo = () => {
       for (let k = 0; k < newUsers; k += 1) {
         const user = {
           _id: userCount + k,
-          created_date: faker.date.past(1, '2016-01-01').toISOString().slice(0, 19).replace('T', ' '),
+          created_at: faker.date.past(1, '2016-01-01').toISOString().slice(0, 19).replace('T', ' '),
           first_name: faker.name.firstName(),
           last_name: faker.name.lastName(),
           email: faker.internet.email(),
@@ -44,7 +44,7 @@ const seedMongo = () => {
       // const Faqs = [];
       // for (let l = 0; l < newFaqsCount; l += 1) {
       //   const faq = {
-      //     created_date: faker.date.past(1, '2018-01-01').toISOString().slice(0, 19).replace('T', ' '),
+      //     created_at: faker.date.past(1, '2018-01-01').toISOString().slice(0, 19).replace('T', ' '),
       //     title: faker.lorem.sentence(),
       //     description: faker.lorem.sentences(),
       //   };
@@ -55,7 +55,7 @@ const seedMongo = () => {
       // const Updates = [];
       // for (let l = 0; l < newUpdatesCount; l += 1) {
       //   const update = {
-      //     created_date: faker.date.past(1, '2018-01-01').toISOString().slice(0, 19).replace('T', ' '),
+      //     created_at: faker.date.past(1, '2018-01-01').toISOString().slice(0, 19).replace('T', ' '),
       //     title: faker.lorem.sentence(),
       //     description: faker.lorem.sentences(),
       //   };
@@ -66,7 +66,7 @@ const seedMongo = () => {
       // const Comments = [];
       // for (let l = 0; l < newCommentsCount; l += 1) {
       //   const comment = {
-      //     created_date: faker.date.past(1, '2018-01-01').toISOString().slice(0, 19).replace('T', ' '),
+      //     created_at: faker.date.past(1, '2018-01-01').toISOString().slice(0, 19).replace('T', ' '),
       //     description: faker.lorem.sentences(),
       //     user_id: getRndInteger(1, userCount),
       //   };
@@ -76,13 +76,14 @@ const seedMongo = () => {
       const project = {
         _id: projectCount + j,
         creator_id: getRndInteger(userCount, userCount + newUsers),
-        created_date: faker.date.past(1, '2017-01-01').toISOString().slice(0, 19).replace('T', ' '),
+        created_at: faker.date.past(1, '2017-01-01').toISOString().slice(0, 19).replace('T', ' '),
         end_date: faker.date.future(1).toISOString().slice(0, 19).replace('T', ' '),
         title: faker.commerce.productName(),
         description: faker.lorem.sentences(),
         category: faker.commerce.department(),
         city: faker.address.city(),
         state: faker.address.state(),
+        country: faker.address.countryCode(),
         image_url: `https://s3.amazonaws.com/jumpstarter-pics/product${getRndInteger(1, 1000)}.jpg`,
         faqs_count: newFaqsCount,
         // faqs: Faqs,
@@ -117,6 +118,7 @@ const seedMongo = () => {
       // Updates = `,${JSON.stringify(Updates).slice(1, -1)}`;
       // Comments = `,${JSON.stringify(Comments).slice(1, -1)}`;
     }
+    console.log(projectCount);
     fs.appendFileSync('./db/Projects.json', Projects);
     fs.appendFileSync('./db/Users.json', Users);
     // fs.appendFileSync('./db/Faqs.json', Faqs);

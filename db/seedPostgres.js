@@ -27,7 +27,7 @@ const seedPostgres = () => {
 
       for (let k = 0; k < newUsers; k += 1) {
         Users +=
-          `${faker.date.past(1, '2016-01-01').toISOString().slice(0, 19).replace('T', ' ')},` + // created_date
+          `${faker.date.past(1, '2016-01-01').toISOString().slice(0, 19).replace('T', ' ')},` + // created_at
           `${faker.name.firstName()},` + // first_name
           `${faker.name.lastName()},` + // last_name
           `${faker.internet.email()},` + // email
@@ -39,7 +39,7 @@ const seedPostgres = () => {
         const pledgeAmt = getRndInteger(0, 1000);
         totalPledgeAmt += pledgeAmt;
         ProjectsUsers +=
-          `${faker.date.past(1, '2018-01-01').toISOString().slice(0, 19).replace('T', ' ')},` + // created_date
+          `${faker.date.past(1, '2018-01-01').toISOString().slice(0, 19).replace('T', ' ')},` + // created_at
           `${pledgeAmt},` + // pledge_amt
           `${projectCount + j},` + // project_id
           `${userCount + k}\n`; // user_id
@@ -47,13 +47,14 @@ const seedPostgres = () => {
 
       Projects +=
         `${getRndInteger(userCount, userCount + newUsers)},` + // creator_id
-        `${faker.date.past(1, '2017-01-01').toISOString().slice(0, 19).replace('T', ' ')},` + // created_date
+        `${faker.date.past(1, '2017-01-01').toISOString().slice(0, 19).replace('T', ' ')},` + // created_at
         `${faker.date.future(1).toISOString().slice(0, 19).replace('T', ' ')},` + // end_date
         `${faker.commerce.productName()},` + // title
         `${faker.lorem.sentences()},` + // description
         `${faker.commerce.department()},` + // category
         `${faker.address.city()},` + // city
         `${faker.address.state()},` + // state
+        `${faker.address.countryCode()},` + // country
         `https://s3.amazonaws.com/jumpstarter-pics/product${getRndInteger(1, 1000)}.jpg,` + // image_url
         `${newFaqs},` + // faqs_count
         `${newUpdates},` + // updates_count
@@ -89,6 +90,7 @@ const seedPostgres = () => {
       // }
     }
     projectCount += newProjects;
+    console.log(projectCount);
     fs.appendFileSync('./db/Projects.csv', Projects);
     fs.appendFileSync('./db/Users.csv', Users);
     fs.appendFileSync('./db/ProjectsUsers.csv', ProjectsUsers);
