@@ -5,3 +5,4 @@ bundle.js
 *.csv
 /db/img
 *.json
+newrelic_agent.log

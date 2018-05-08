@@ -1,12 +1,15 @@
+require('newrelic');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const db = require('../db/index.js');
+const db = require('../db');
 const cors = require('cors');
-
-const app = express();
 // const seedMongo = require('../db/seedMongo');
 // const seedPostgres = require('../db/seedPostgres');
+// seedMongo();
+// seedPostgres();
+
+const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -14,18 +17,11 @@ app.use(express.static(path.join(__dirname, '/../client/public')));
 
 const port = 3001;
 
-// seedMongo();
-// seedPostgres();
-
-app.get('/api/:id', (req, res) => {
-  db.Product.find({ projectID: req.params.id }).exec((err, docs) => {
-    if (err) {
-      console.log('err: ', err);
-      res.status(400).end();
-    } else {
-      res.status(200).json(docs);
-    }
-  });
+app.get('/api/:id', async (req, res) => {
+  const { id } = req.params;
+  const { rows } = await db.query('SELECT * FROM projects WHERE id = $1', [id]);
+  console.log(rows[0]);
+  res.send(rows[0]);
 });
 
 app.listen(port, () => {

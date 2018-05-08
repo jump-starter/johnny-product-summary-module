@@ -29,11 +29,11 @@ class Creator extends React.Component {
 
       <div id="creator" style={style}>
         <img
-          src={this.props.data.creator.avatarImg}
+          src={this.props.data.avatar_img}
           style={style.avatarImg}
         />
         <span >
-          <a style={style.name} href="">By {' '} {this.props.data.creator.name}</a>
+          {/* <a style={style.name} href="">By {' '} {this.props.data.creator.name}</a> */}
         </span>
         <div id="numProducts" style={style.productCount}>
               First created
