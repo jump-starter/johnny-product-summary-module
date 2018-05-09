@@ -6,4 +6,4 @@ bundle.js
 /db/img
 *.json
 newrelic_agent.log
-server/newrelic.js
+/server/newrelic.js
