@@ -23,10 +23,9 @@ app.get('/api/:id', async (req, res) => {
   const { rows } = await db.query(`SELECT *
                                    FROM projects 
                                    WHERE id = ${id}`);
-  const keys = Object.keys(rows[0]);
-  for (let i = 0; i < keys.length; i += 1) {
-    results[camel(keys[i])] = rows[0][keys[i]];
-  }
+  Object.keys(rows[0]).forEach((key) => {
+    results[camel(key)] = rows[0][key];
+  });
 
   const toAppend1 = await db.query(`SELECT first_name AS "firstName", last_name AS "lastName", avatar_url AS "avatarUrl"
                                    FROM users
