@@ -33,7 +33,6 @@ class App extends React.Component {
       });
   }
 
-
   render() {
     const style = {
       display: 'grid',
@@ -46,7 +45,6 @@ class App extends React.Component {
       fontFamily: 'Karla, Helvetica Neue, Helvetica, Arial, sans-serif',
       backgroundColor: '#FBFBFA',
       color: 'rgb(40, 40, 40)',
-      gridAutoFlow: 'row',
       gridAutoFlow: 'column',
     };
 

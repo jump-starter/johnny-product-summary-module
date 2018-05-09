@@ -1,9 +1,9 @@
 require('newrelic');
 const express = require('express');
 const path = require('path');
-const bodyParser = require('body-parser');
-const db = require('../db');
 const cors = require('cors');
+const camel = require('to-camel-case');
+const db = require('../db');
 // const seedMongo = require('../db/seedMongo');
 // const seedPostgres = require('../db/seedPostgres');
 // seedMongo();
@@ -12,16 +12,35 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors());
-app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/../client/public')));
 
 const port = 3001;
 
 app.get('/api/:id', async (req, res) => {
+  const results = {};
+
   const { id } = req.params;
-  const { rows } = await db.query('SELECT * FROM projects WHERE id = $1', [id]);
-  console.log(rows[0]);
-  res.send(rows[0]);
+  const { rows } = await db.query(`SELECT *
+                                   FROM projects 
+                                   WHERE id = ${id}`);
+  const keys = Object.keys(rows[0]);
+  for (let i = 0; i < keys.length; i += 1) {
+    results[camel(keys[i])] = rows[0][keys[i]];
+  }
+
+  const toAppend1 = await db.query(`SELECT first_name AS "firstName", last_name AS "lastName", avatar_url AS "avatarUrl"
+                                   FROM users
+                                   WHERE id = ${results.creatorId}`);
+  results.firstName = toAppend1.rows[0].firstName;
+  results.lastName = toAppend1.rows[0].lastName;
+  results.avatarUrl = toAppend1.rows[0].avatarUrl;
+
+  const toAppend2 = await db.query(`SELECT count(*) AS "projectsCreatedCount"
+                                    FROM projects
+                                    WHERE id = ${results.creatorId}`);
+  results.projectsCreatedCount = Number(toAppend2.rows[0].projectsCreatedCount);
+
+  res.send(results);
 });
 
 app.listen(port, () => {
