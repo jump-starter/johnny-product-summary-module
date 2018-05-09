@@ -4,7 +4,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import data from '../../db/sampleData';
 import Creator from './components/Creator';
 import Title from './components/Title';
 import MainImage from './components/MainImage';
@@ -15,7 +14,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: data[0], /* data[0] --- default case */
+      data: {},
     };
   }
 

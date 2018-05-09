@@ -89,7 +89,7 @@ const Stats = ({ data }) => (
     </div>
     {data.allOrNothing &&
       <div id="allOrNothing"style={style.afterAllOrNothing}>
-        <a href="" style={style.allOrNothing}>All or nothing.</a>
+        <a href="#" style={style.allOrNothing}>All or nothing.</a>
         <span> This project will only be funded if it reaches its goal by</span>
         <div>{moment(data.endDate).format('MMMM D YYYY, h:mm A')} PST</div>
       </div>

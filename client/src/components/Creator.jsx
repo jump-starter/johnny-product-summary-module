@@ -27,7 +27,7 @@ const Creator = ({ data }) => (
       alt=""
     />
     <span >
-      <a style={style.name} href="">By {' '} {data.firstName} {data.lastName}</a>
+      <a style={style.name} href="#">By {' '} {data.firstName} {data.lastName}</a>
     </span>
     <div id="numProducts" style={style.projectsCreatedCount}>
       {data.projectsCreatedCount === 1 ? 'First created' : `${data.projectsCreatedCount} created`}

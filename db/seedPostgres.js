@@ -1,6 +1,5 @@
 const fs = require('fs');
 const faker = require('faker');
-// const db = require('./index.js');
 
 const seedPostgres = () => {
   function getRndInteger(min, max) {
@@ -99,10 +98,5 @@ const seedPostgres = () => {
     // fs.appendFileSync('./db/Comments.csv', Comments);
   }
 };
-
-// async function seedPostgres() {
-//   await db.client.connect();
-//   await db.client.end();
-// }
 
 module.exports = seedPostgres;

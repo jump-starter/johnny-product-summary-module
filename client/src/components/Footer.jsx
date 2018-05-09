@@ -32,14 +32,14 @@ const Footer = ({ data }) => (
       src="https://s17.postimg.cc/rj782wx7z/Untitled_2.png"
       alt=""
     />
-    <a id="fav" href="" style={style.text}>Our Favorite Products</a>
+    <a id="fav" href="#" style={style.text}>Our Favorite Products</a>
     <img
       id="cIcon"
       style={style.icons}
       src="https://s17.postimg.cc/bekt9otv3/compass_icon.png"
       alt=""
     />
-    <a href="" style={style.text}>{data.category}</a>
+    <a href="#" style={style.text}>{data.category}</a>
 
     <img
       id="mIcon"
@@ -47,7 +47,7 @@ const Footer = ({ data }) => (
       src="https://s17.postimg.cc/gpzpuevdb/map-pin.png"
       alt=""
     />
-    <a href="" style={style.text}>{data.city}, {data.state}</a>
+    <a href="#" style={style.text}>{data.city}, {data.state}</a>
   </div>
 );
 
