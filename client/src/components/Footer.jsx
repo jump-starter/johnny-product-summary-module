@@ -10,7 +10,6 @@ const style = {
   justifySelf: 'start',
   fontSize: '12px',
   icons: {
-
     alignSelf: 'end',
   },
   text: {
