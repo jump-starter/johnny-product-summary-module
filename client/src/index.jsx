@@ -3,7 +3,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import queryString from 'query-string';
 import data from '../../db/sampleData';
 import Creator from './components/Creator';
 import Title from './components/Title';
@@ -20,9 +19,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const parsed = queryString.parse(window.location.search);
     const context = this;
-    axios.get(`/api/${parsed.id}`)
+    axios.get(`/api/${this.props.projectId}`)
       .then((response) => {
         context.setState({
           data: response.data,
