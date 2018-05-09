@@ -3,6 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import data from '../../db/sampleData';
 import Creator from './components/Creator';
 import Title from './components/Title';
@@ -57,6 +58,10 @@ class App extends React.Component {
     );
   }
 }
+
+App.propTypes = {
+  projectId: PropTypes.string.isRequired,
+};
 
 window.React = React;
 window.ReactDOM = ReactDOM;
