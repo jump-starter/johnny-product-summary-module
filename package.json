@@ -1,5 +1,5 @@
 {
-  "name": "Main-Component",
+  "name": "main-component",
   "version": "1.0.0",
   "description": "Front End Capstone Project :: Kickstarter :: Primary Component",
   "main": "index.js",
@@ -57,13 +57,16 @@
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "faker": "^4.1.0",
+    "moment": "^2.22.1",
     "mongoose": "^5.0.17",
     "newrelic": "^4.1.0",
     "pg": "^7.4.1",
+    "prop-types": "^15.6.1",
     "query-string": "^6.1.0",
     "radium": "^0.24.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-test-renderer": "^16.3.2"
+    "react-test-renderer": "^16.3.2",
+    "to-camel-case": "^1.0.0"
   }
 }
