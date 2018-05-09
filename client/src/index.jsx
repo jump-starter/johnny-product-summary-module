@@ -3,6 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import queryString from 'query-string';
 import data from '../../db/sampleData';
 import Creator from './components/Creator';
 import Title from './components/Title';
@@ -19,18 +20,18 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    const parsed = queryString.parse(window.location.search);
     const context = this;
-    axios.get(`/api/${this.props.projectId}`)
+    axios.get(`/api/${parsed.id}`)
       .then((response) => {
         context.setState({
-          data: response.data[0],
+          data: response.data,
         });
       })
       .catch((error) => {
         console.log('ERROR: could not fetch project:', error);
       });
   }
-
 
   render() {
     const style = {
@@ -44,7 +45,6 @@ class App extends React.Component {
       fontFamily: 'Karla, Helvetica Neue, Helvetica, Arial, sans-serif',
       backgroundColor: '#FBFBFA',
       color: 'rgb(40, 40, 40)',
-      gridAutoFlow: 'row',
       gridAutoFlow: 'column',
     };
 
