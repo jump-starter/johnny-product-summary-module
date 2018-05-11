@@ -2,6 +2,7 @@ require('newrelic');
 const express = require('express');
 const path = require('path');
 const cluster = require('cluster');
+const os = require('os');
 const cors = require('cors');
 const camel = require('to-camel-case');
 const db = require('../db');
@@ -11,7 +12,7 @@ const db = require('../db');
 // seedPostgres();
 
 if (cluster.isMaster) {
-  const cpuCount = require('os').cpus().length;
+  const cpuCount = os.cpus().length;
 
   for (let i = 0; i < cpuCount; i += 1) {
     cluster.fork();
