@@ -37,9 +37,9 @@ if (cluster.isMaster) {
 
     client.get(id, async (error, result) => {
       if (result) {
-        res.send(result);
+        res.send(JSON.parse(result));
       } else {
-        const results = {};
+        let results = {};
 
         const { rows } = await db.query(`SELECT *
                                          FROM projects 
@@ -60,6 +60,7 @@ if (cluster.isMaster) {
                                           WHERE id = ${results.creatorId}`);
         results.projectsCreatedCount = Number(toAppend2.rows[0].projectsCreatedCount);
 
+        results = JSON.stringify(results);
         client.set(id, results);
         res.send(results);
       }
