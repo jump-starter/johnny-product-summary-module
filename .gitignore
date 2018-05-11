@@ -7,3 +7,4 @@ bundle.js
 *.json
 newrelic_agent.log
 /server/newrelic.js
+dump.rdb

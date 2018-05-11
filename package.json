@@ -41,6 +41,7 @@
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "redis": "^2.8.0",
     "to-camel-case": "^1.0.0"
   },
   "devDependencies": {
