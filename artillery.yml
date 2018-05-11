@@ -2,28 +2,11 @@ config:
   target: 'http://localhost:3001'
   phases:
     - duration: 60
-      arrivalRate: 100
-  environments:
-    dev:
-      target: 'http://localhost:3001'
-      phases:
-        - duration: 1
-          arrivalRate: 1
-          rampTo: 10
-          name: "1-10 RPS"
-        - duration: 9
-          arrivalRate: 10
-          rampTo: 100
-          name: "10-100 RPS"
-        - duration: 90
-          arrivalRate: 100
-          rampTo: 1000
-          name: "100-1000 RPS"
-  defaults:
-    headers:
-      x-my-service-auth: '987401838271002188298567'
+      arrivalRate: 10
 scenarios:
   - name: "Page load"
     flow:
-    - get:
-        url: "/?id={{ $randomNumber(1,10000000) }}"
+    - loop:
+      - get:
+          url: "/api/{{ $randomNumber(1,10000000) }}"
+      count: 1000
