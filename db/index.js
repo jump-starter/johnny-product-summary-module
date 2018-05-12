@@ -11,7 +11,7 @@ const pool = new Pool({
 
 if (process.env.NODE_ENV === 'production') {
   pool.host = 'jumpstarter.csd5zcikdsxn.us-west-1.rds.amazonaws.com';
-  pool.password = process.env.PG_PASSWORD;
+  pool.password = process.env.POSTGRES_PASSWORD;
 }
 
 pool.on('error', (err, client) => {
