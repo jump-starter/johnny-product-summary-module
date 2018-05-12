@@ -10,6 +10,8 @@ import MainImage from './components/MainImage';
 import Footer from './components/Footer';
 import Stats from './components/Stats';
 
+const url = (process.env.NODE_ENV === 'production') ?
+  'http://ec2-54-215-233-246.us-west-1.compute.amazonaws.com' : 'http://127.0.0.1:3001';
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +22,7 @@ class App extends React.Component {
 
   componentDidMount() {
     const context = this;
-    axios.get(`${window.location.href.split('?')[0]}api/${this.props.projectId}`)
+    axios.get(`${url}/api/${this.props.projectId}`)
       .then((response) => {
         context.setState({
           data: response.data,

@@ -13,20 +13,17 @@ const db = require('../db');
 // seedPostgres();
 
 const client = redis.createClient();
-
 client.on('error', (err) => {
   console.log(`Error ${err}`);
 });
 
 if (cluster.isMaster) {
   const cpuCount = os.cpus().length;
-
   for (let i = 0; i < cpuCount; i += 1) {
     cluster.fork();
   }
 } else {
   const app = express();
-
   app.use(cors());
   app.use(express.static(path.join(__dirname, '/../client/public')));
 
