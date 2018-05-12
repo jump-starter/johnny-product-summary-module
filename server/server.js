@@ -12,26 +12,27 @@ const db = require('../db');
 // seedMongo();
 // seedPostgres();
 
-const port = 3001;
-const url = (process.env.NODE_ENV === 'production') ?
-  'http://ec2-54-215-233-246.us-west-1.compute.amazonaws.com' : `http://127.0.0.1:${port}`;
-
 const client = redis.createClient();
+
 client.on('error', (err) => {
   console.log(`Error ${err}`);
 });
 
 if (cluster.isMaster) {
   const cpuCount = os.cpus().length;
+
   for (let i = 0; i < cpuCount; i += 1) {
     cluster.fork();
   }
 } else {
   const app = express();
+
   app.use(cors());
   app.use(express.static(path.join(__dirname, '/../client/public')));
 
-  app.get(`${url}/api/:id`, (req, res) => {
+  const port = 3001;
+
+  app.get('/api/:id', (req, res) => {
     const { id } = req.params;
 
     client.get(id, async (error, result) => {
@@ -70,4 +71,3 @@ if (cluster.isMaster) {
     console.log(`App now live at http://127.0.0.1:${port}`);
   });
 }
-

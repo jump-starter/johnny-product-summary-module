@@ -20,7 +20,7 @@ class App extends React.Component {
 
   componentDidMount() {
     const context = this;
-    axios.get(`/api/${this.props.projectId}`)
+    axios.get(`${window.location.href.split('?')[0]}api/${this.props.projectId}`)
       .then((response) => {
         context.setState({
           data: response.data,
