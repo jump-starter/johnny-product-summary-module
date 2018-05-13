@@ -12,7 +12,7 @@ const db = require('../db');
 // seedMongo();
 // seedPostgres();
 
-const client = redis.createClient();
+const client = redis.createClient(6379, '172.17.0.2');
 client.on('error', (err) => {
   console.log(`Error ${err}`);
 });
