@@ -10,7 +10,6 @@ import MainImage from './components/MainImage';
 import Footer from './components/Footer';
 import Stats from './components/Stats';
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
