@@ -10,7 +10,7 @@ import MainImage from './components/MainImage';
 import Footer from './components/Footer';
 import Stats from './components/Stats';
 
-class App extends React.Component {
+class Summary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,7 +53,7 @@ class App extends React.Component {
     };
 
     return (
-      <div className="App" style={style}>
+      <div className="Summary" style={style}>
         <Creator data={this.state.data} />
         <Title data={this.state.data} />
         <MainImage data={this.state.data} />
@@ -64,12 +64,12 @@ class App extends React.Component {
   }
 }
 
-App.propTypes = {
+Summary.propTypes = {
   projectId: PropTypes.string.isRequired,
 };
 
 window.React = React;
 window.ReactDOM = ReactDOM;
-window.App = App;
+window.Summary = Summary;
 
-// ReactDOM.render(<App />, document.getElementById('Summary'));
+// ReactDOM.render(<Summary />, document.getElementById('Summary'));

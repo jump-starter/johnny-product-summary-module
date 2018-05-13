@@ -3,7 +3,7 @@
 <head>
 <link href="https://d3mlfyygrfdi2i.cloudfront.net/favicon.png?v=2" rel="icon" type="image/png">
 <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
-<title>FEC :: Kickstarter</title>
+<title>Kickstarter Product Summary Module</title>
 </head>
 <body>
 <div id="Summary"></div>
@@ -11,7 +11,7 @@
 <script>
   const project = window.location.href.split('?')[1] || 0;
   ReactDOM.render(
-    React.createElement(App, {projectId: project}),
+    React.createElement(Summary, {projectId: project}),
     document.getElementById('Summary')
   );
 </script>
