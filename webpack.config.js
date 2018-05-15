@@ -1,12 +1,8 @@
 const path = require('path');
 
-module.exports = {
+const common = {
   mode: 'development',
-  entry: './client/src/index.jsx',
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'client/public'),
-  },
+  context: path.resolve(__dirname, 'client'),
   module: {
     rules: [
       {
@@ -23,3 +19,26 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
 };
+
+const client = {
+  entry: './client.js',
+  output: {
+    path: path.resolve(__dirname, 'client/public'),
+    filename: 'bundle.js',
+  },
+};
+
+const server = {
+  entry: './server.js',
+  target: 'node',
+  output: {
+    path: path.resolve(__dirname, 'client/public'),
+    filename: 'bundle-server.js',
+    libraryTarget: 'commonjs-module',
+  },
+};
+
+module.exports = [
+  Object.assign({}, common, client),
+  Object.assign({}, common, server),
+];

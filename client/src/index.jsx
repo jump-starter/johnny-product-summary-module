@@ -10,7 +10,7 @@ import MainImage from './components/MainImage';
 import Footer from './components/Footer';
 import Stats from './components/Stats';
 
-class Summary extends React.Component {
+export default class Summary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -67,9 +67,3 @@ class Summary extends React.Component {
 Summary.propTypes = {
   projectId: PropTypes.string.isRequired,
 };
-
-window.React = React;
-window.ReactDOM = ReactDOM;
-window.Summary = Summary;
-
-// ReactDOM.render(<Summary />, document.getElementById('Summary'));

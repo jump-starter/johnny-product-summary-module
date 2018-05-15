@@ -2,6 +2,7 @@ node_modules
 .DS_Store
 z ex.
 bundle.js
+bundle-server.js
 *.csv
 /db/img
 *.json
