@@ -9,3 +9,4 @@ bundle-server.js
 newrelic_agent.log
 /server/newrelic.js
 dump.rdb
+/coverage
