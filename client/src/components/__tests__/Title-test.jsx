@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import { shallow, mount, render } from 'enzyme';
-import renderer from 'react-test-renderer';
+import React from 'react';
+import { shallow } from 'enzyme';
 import Title from '../Title';
 import sampleData from '../../../../db/sampleData';
 

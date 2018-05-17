@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
-import { shallow, mount, render } from 'enzyme';
-import renderer from 'react-test-renderer';
+import React from 'react';
+import { shallow } from 'enzyme';
 import Creator from '../Creator';
 import sampleData from '../../../../db/sampleData';
-/***********************************************************************/
 
 describe('Creator Component', () => {
   it('should render without throwing an error', () => {
