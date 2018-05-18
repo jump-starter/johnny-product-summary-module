@@ -19,14 +19,8 @@ export default class Summary extends React.Component {
   }
 
   componentDidMount() {
-    // console.log(process.env.NODE_ENV);
-    // const url = (process.env.NODE_ENV === 'production') ?
-    //   'http://ec2-54-215-233-246.us-west-1.compute.amazonaws.com' : 'http://127.0.0.1:3001';
-
-    const url = 'http://ec2-54-215-233-246.us-west-1.compute.amazonaws.com';
-
     const context = this;
-    axios.get(`${url}/api/${this.props.projectId}`)
+    axios.get(`/api/${this.props.projectId}`)
       .then((response) => {
         context.setState({
           data: response.data,
