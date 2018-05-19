@@ -1,7 +1,6 @@
 /* eslint-env browser */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import Creator from './components/Creator';
