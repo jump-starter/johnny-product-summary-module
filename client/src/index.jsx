@@ -20,7 +20,10 @@ export default class Summary extends React.Component {
 
   componentDidMount() {
     const context = this;
-    axios.get(`/api/${this.props.projectId}`)
+    axios({
+      method: 'get',
+      url: `http://jumpstarter-load-balancer-1829901115.us-west-1.elb.amazonaws.com/api/${this.props.projectId}`,
+    })
       .then((response) => {
         context.setState({
           data: response.data,
